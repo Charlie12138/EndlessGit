@@ -44,11 +44,23 @@
 
   继续在cmd中使用命令==mvn test==就会自动在网上下载测试类用到的jar包。
 
-* ==mvn clean==命令：将mvn compile 和mvn test后创建的文件都删除。
+* ==mvn clean==命令：将mvn compile 和mvn test后创建的==target==文件都删除。
 
 * 将测试文件改出bug后执行mvn test，在maven-ch01\target\surfire-reports会有测试报告记录错误。
 
 * ==mvn  package==命令：将项目打包成一个jar包。
+
+#### 创建目录的两种方式
+
+* archetype:generate 按照提示进行选择
+
+* archetype:generate -DgroupId=组织名，公司网址的反写+项目名
+
+  ​				   -DartifactId=项目名-模块名
+
+  ​				   -Dversion=版本号
+
+  ​				   -Dpackage=代码所在的包名
 
 #### 仓库
 

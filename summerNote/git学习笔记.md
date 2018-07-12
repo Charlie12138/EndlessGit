@@ -30,7 +30,22 @@
 - 第三步： 比如你要添加一个文件xxx到本地仓库，使用命令 “git add xxx”，可以使用“git add .”自动判断添加哪些文件                           然后把这个添加提交到本地的仓库，使用命令 ==”git commit -m ”==说明这次的提交“ “     
   最后把本地仓库origin提交到远程的GitHub仓库，使用命令 ==git push origin master==
 
+## 从本地上传文件到organization
+
+* 克隆一个库到自己电脑上：git clone + 库地址
+
+* 将自己的修改并入
+
+* git add .
+
+* git commit -m "xxx"
+
+* git push (如果不行先用==git pull --rebase origin master==，拉取远程的文件把本地的覆盖，再上传)
+
+  
+
 ##  从GitHub克隆项目到本地
+
 - 第一步： 到GitHub的某个仓库，然后复制右边的有个“==HTTPS clone url==”
 - 第二步： 回到要存放的目录下，使用命令 " ==git clone https://github.com/chenguolin/scrapy.git=="，黄色的url只是一个例子
 - 第三步： 如果本地的版本不是最新的，可以使用命令 “==git fetch origin==”，origin是本地仓库
