@@ -9,15 +9,14 @@
   - main
     - java
       - package
-    - resources
   - test
     - java
       - package
-    - resources
+  - resources
 
 - target(调用mvn:compile后出现)，里面是编译好的.class等等
 
-- ps：resources文件夹中放配置文件
+- ps：resources文件夹中放资源文件
 
 - **pom.xml文件中必备的东西**：
 
