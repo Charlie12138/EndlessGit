@@ -12,6 +12,10 @@
 
 * cmd: ==mvn -version==查看版本，是否成功配置环境变量
 
+
+
+
+
 #### 视频例子
 
 * 在maven-ch01中建立一个pom.xml文件，内容：
@@ -50,6 +54,10 @@
 
 * ==mvn  package==命令：将项目打包成一个jar包。
 
+
+
+
+
 #### 创建目录的两种方式
 
 * archetype:generate 按照提示进行选择
@@ -62,12 +70,20 @@
 
   ​				   -Dpackage=代码所在的包名
 
+
+
+
+
 #### 仓库
 
 * 位置：自定义（方便管理，重装系统不会影响）
   * 我在D:/JDK8中建立maven/repository，在安装路径下**conf**找到settings.xml复制到新建的repository。两个**settings.xml**里的repository地址**都改为**新建的地址。
 * 当输入mvn compile命令时就会在仓库中找到依赖的jar包，jar包存在就直接用，不存在再从网上下载。
 * ==mvn install==命令：把jar包发到本地仓库中
+
+
+
+
 
 #### 依赖范围
 
@@ -76,6 +92,10 @@
 * ==provided==依赖：在编译和测试的过程有效，最后生成jar包时不会加入，诸如：servlet-api, 因为servlet-api, tomcat等web服务器已经存在了，如果再打包会冲突
 * ==runtime==在运行的时候依赖，在编译的时候不依赖
 * 默认的依赖范围是==complie==
+
+
+
+
 
 #### 依赖传递
 
@@ -96,6 +116,10 @@
   * A->C->D2.0
 
     ##### 这种情况Maven会根据申明的依赖顺序来进行选择，先申明的会被作为依赖包。像前面这种情况，如果先申明对B的依赖，则A依赖的就是D1.0，如果先申明对C的依赖，则A依赖的就是D2.0。 
+
+
+
+
 
 #### 使用exclusion排除依赖
 
@@ -136,6 +160,10 @@
 </dependencies>  
 ```
 
+
+
+
+
 #### 继承
 
 ##### 	为何需要继承？
@@ -170,6 +198,10 @@ ALL的配置 如下：
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 ```
+
+
+
+
 
 #### 聚合
 
@@ -234,6 +266,10 @@ pre-site
 site ：生成项目的站点文档； 
 post-site 
 site-deploy ：发布生成的站点文档
+
+
+
+
 
 #### 配置插件
 
