@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="userMapper">
+
+    <!--CRUD操作-->
+
+    <!--增-->
+    <insert id="addUser" parameterType="User">
+        insert into User(name, age) values (#{name}, #{age});
+    </insert>
+
+    <!--删-->
+    <delete id="deleteUser" parameterType="int">
+        delete from User where id = #{id}
+    </delete>
+
+    <!--查-->
+    <!--<select id="findById2" parameterType="int" resultType="Order">-->
+        <!--select order_id id, order_no orderNo,order_price price from orders where order_id=#{id}-->
+    <!--</select>-->
+
+    <select id="selectOrderResultMap" parameterType="int" resultMap="orderResultMap">
+	    select * from orders where order_id=#{id}
+    </select>
+
+    <resultMap type="Order" id="orderResultMap">
+        <id property="id" column="order_id"/>  <!--主键-->
+        <result property="orderNo" column="order_no"/>  <!--其他字段-->
+        <result property="price" column="order_price"/>
+    </resultMap>
+
+
+    <!--查-->
+    <select id="findById" parameterType="int" resultType="User">
+        SELECT *FROM User WHERE id=#{id}
+    </select>
+
+    <select id="getAll" resultType="User">
+        SELECT *from User;
+    </select>
+
+    <!--改-->
+    <update id="updateUser" parameterType="User">
+        update User set name = #{name}, age = #{age} where id = #{id}
+    </update>
+
+    <!--<select id="getClass" parameterType="int" resultMap="ClassResultMap">-->
+        <!--select * from class c, teacher t where c.teacher_id = t.t_id and c.c_id = #{id}-->
+    <!--</select>-->
+
+    <!--<resultMap type="Classes" id="ClassResultMap">-->
+        <!--<id property="id" column="c_id"/>-->
+        <!--<result property="name" column="c_name"/>-->
+        <!--<association property="teacher" javaType="Teacher">-->
+            <!--<id property="id" column="t_id"/>-->
+            <!--<result property="name" column="t_name"/>-->
+        <!--</association>-->
+    <!--</resultMap>-->
+
+    <select id="getClass2" parameterType="int" resultMap="ClassResultMap2">
+        select * from class where c_id=#{id}
+    </select>
+
+    <resultMap id="ClassResultMap2" type="Classes">
+        <id property="id" column="c_id"/>
+        <result property="name" column="c_name"/>
+        <association property="teacher" column="teacher_id" select="getTeacher"/>
+    </resultMap>
+
+    <select id="getTeacher" parameterType="int" resultType="Teacher">
+        select t_id id, t_name name from teacher where t_id=#{id}
+    </select>
+
+    <!--&lt;!&ndash;-->
+    <!--方式一: 嵌套结果: 使用嵌套结果映射来处理重复的联合结果的子集-->
+    <!--SELECT * FROM class c, teacher t,student s WHERE c.teacher_id=t.t_id AND c.C_id=s.class_id AND  c.c_id=1-->
+    <!--&ndash;&gt;-->
+
+    <!--<select id="getClass3" parameterType="int" resultMap="ClassResultMap3">-->
+        <!--select * from class c, teacher t, student s where c.teacher_id = t.t_id and c.c_id = s.class_id and c.c_id = #{id}-->
+    <!--</select>-->
+
+    <!--<resultMap id="ClassResultMap3" type="Classes">-->
+
+        <!--<id property="id" column="c_id"/>-->
+        <!--<result property="name" column="c_name"/>-->
+        <!--<association property="teacher" column="teacher_id" javaType="Teacher">-->
+            <!--<id property="id" column="t_id"/>-->
+            <!--<result property="name" column="t_name"/>-->
+        <!--</association>-->
+
+        <!--&lt;!&ndash;ofType指定students集合中的对象类型&ndash;&gt;-->
+        <!--<collection property="students" ofType="Student">-->
+            <!--<id property="id" column="s_id"/>-->
+            <!--<result property="name" column="s_name"/>-->
+        <!--</collection>-->
+
+    <!--</resultMap>-->
+
+    <!--
+        方式二：嵌套查询：通过执行另外一个SQL映射语句来返回预期的复杂类型
+            SELECT * FROM class WHERE c_id=1;
+            SELECT * FROM teacher WHERE t_id=1   //1 是上一个查询得到的teacher_id的值
+            SELECT * FROM student WHERE class_id=1  //1是第一个查询得到的c_id字段的值
+     -->
+    <select id="getClass4" parameterType="int" resultMap="ClassResultMap4">
+	    select * from class where c_id=#{id}
+    </select>
+
+    <resultMap type="Classes" id="ClassResultMap4">
+        <id property="id" column="c_id"/>
+        <result property="name" column="c_name"/>
+        <association property="teacher" column="teacher_id" javaType="Teacher" select="getTeacher2"></association>
+        <collection property="students" ofType="Student" column="c_id" select="getStudent"></collection>
+    </resultMap>
+
+    <select id="getTeacher2" parameterType="int" resultType="Teacher">
+	    SELECT t_id id, t_name name FROM teacher WHERE t_id=#{id}
+    </select>
+
+    <select id="getStudent" parameterType="int" resultType="Student">
+	    SELECT s_id id, s_name name FROM student WHERE class_id=#{id}
+    </select>
+
+    <!--模糊查询-->
+    <select id="getUser" parameterType="ConditionUser" resultType="User">
+        select * from d_user where
+        <if test='name != "%null%"'>
+            name like #{name}
+        </if>
+        and age between #{minAge} and #{maxAge}
+    </select>
+
+</mapper>
