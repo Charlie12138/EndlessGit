@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cartMapper">
+    <!--为用户添加购物车-->
+    <insert id="addCart" parameterType="int">
+        insert into t_shopcart (userId) values (#{id})
+    </insert>
+
+    <!--检查用户是否已有购物车-->
+    <select id="isHasCart" parameterType="int" resultType="int">
+        select count(*) from t_shopcart where userId = #{id}
+    </select>
+
+    <!--获得购物车-->
+    <select id="getCartByUserId" parameterType="int" resultType="Cart">
+        select * from t_shopcart where userId = #{id}
+    </select>
+
+    <!--获得购物车-->
+    <select id="getCartByCartId" parameterType="int" resultType="Cart">
+        select * from t_shopcart where id = #{id}
+    </select>
+
+    <!--检查某个商品是否存在购物车-->
+    <select id="isExist" parameterType="CartInfo" resultType="int">
+        select count(*) from t_cartInfo where cuisineId = #{cuisine.id} and cartId = #{cart.id}
+    </select>
+
+    <!--为购物车添加信息-->
+    <insert id="addCartInfo" parameterType="CartInfo">
+        insert into t_cartinfo (storeId, cuisineId, number, totalPrice, cartId) values (#{store.storeId}, #{cuisine.id}, #{number}, #{totalPrice}, #{cart.id})
+    </insert>
+
+    <!--获得数目-->
+    <select id="getCartInfoNum" parameterType="int" resultType="int">
+        select count(*) from t_cartInfo where cartId = #{id}
+    </select>
+
+    <!--获得购物车信息（分页）-->
+    <select id="getPageCartInfo" parameterType="java.util.Map" resultMap="cartInfoMap">
+        select * from t_cartinfo where cartId = #{cartId} limit #{startIndex}, #{pageSize}
+    </select>
+
+
+    <!--获得购物车信息-->
+    <select id="getCartInfos" parameterType="int" resultMap="cartInfoMap">
+        select * from t_cartinfo where cartId = #{id}
+    </select>
+
+    <!--获得同一个购物车的同一个店铺的信息-->
+    <select id="getCartInfosByStore" parameterType="CartInfo" resultMap="cartInfoMap">
+        select * from t_cartinfo where cartId = #{cart.id} and storeId = #{store.storeId}
+    </select>
+
+    <!--获得购物车某个商品信息-->
+    <select id="getCartInfoByCart" parameterType="CartInfo" resultMap="cartInfoMap">
+        select * from t_cartinfo where cartId = #{cart.id} and cuisineId = #{cuisine.id}
+    </select>
+
+    <resultMap id="cartInfoMap" type="CartInfo">
+        <association property="cart" column="cartId" select="getCartByCartId"/>
+        <association property="cuisine" column="cuisineId" select="storeMapper.getCuisineInfo"/>
+        <association property="store" column="storeId" select="storeMapper.getStoreInfoById"/>
+    </resultMap>
+
+    <!--修改购物车某商品的数量和总价格-->
+    <update id="modifyNumPrice" parameterType="CartInfo">
+        update t_cartinfo set number = #{number}, totalPrice = #{totalPrice} where cartId = #{cart.id} and cuisineId = #{cuisine.id}
+    </update>
+
+    <!--清空购物车-->
+    <delete id="clearCart" parameterType="int">
+        delete from t_cartInfo where cartId = #{id}
+    </delete>
+
+
+</mapper>

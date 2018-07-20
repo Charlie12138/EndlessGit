@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdminMapper">
+
+    <!--搜索正在注的用户-->
+    <select id="getRegiserUser" resultType="User">
+        select * from t_user where status = 0
+    </select>
+
+
+    <!--审核通过正在注册的人-->
+    <update id="agreeRegister" parameterType="User" >
+        update t_user set status = #{status} where username = #{username}
+    </update>
+
+
+    <!--搜索正在申请开店的店铺-->
+    <select id="getStore" parameterType="int" resultMap="StoreMap">
+        select * from t_store where status = #{status}
+    </select>
+
+    <resultMap id="StoreMap" type="Store">
+        <id property="storeId" column="id"/>
+        <result property="storeName" column="storename"/>
+        <result property="shopkeeperName" column="shopkeeperName"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone"/>
+        <result property="storeDescription" column="storeDescription"/>
+        <result property="createTime" column="createTime"/>
+        <result property="status" column="status"/>
+        <association property="user" javaType="User">
+            <id property="id" column="shopkeeperId"/>
+        </association>
+    </resultMap>
+
+
+    <!--对开店请求的操作-->
+    <update id="operationOpenStore" parameterType="Store">
+        update t_store set status = #{status} where storename = #{storeName}
+    </update>
+
+
+    <!--修改用户身份-->
+        <!--获得用户id-->
+    <select id="getUserId" parameterType="User" resultMap="NewStoreMap">
+        select * from t_store where status = #{status} and storename = #{storeName}
+    </select>
+    <resultMap id="NewStoreMap" type="Store">
+        <id property="storeId" column="id"/>
+        <result property="storeName" column="storename"/>
+        <result property="shopkeeperName" column="shopkeeperName"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone"/>
+        <result property="storeDescription" column="storeDescription"/>
+        <result property="createTime" column="createTime"/>
+        <result property="status" column="status"/>
+        <association property="user" javaType="User">
+            <id property="id" column="shopkeeperId"/>
+        </association>
+    </resultMap>
+
+
+        <!--设置身份为店家-->
+    <update id="modifyUserRole" parameterType="User">
+        update t_user_role set roleId = #{role} where userId = #{id} and roleId != #{role}
+    </update>
+
+
+    <!--获得正在申请上架的菜-->
+    <select id="getCuisine" parameterType="int" resultMap="getCuisineMap">
+        select * from t_cuisine where status = #{status}
+    </select>
+    <resultMap id="getCuisineMap" type="Cuisine">
+        <id property="id" column="id"/>
+        <result property="cuisineName" column="cuisineName"/>
+        <result property="description" column="description"/>
+        <result property="picturePath" column="picturePath"/>
+        <result property="price" column="price"/>
+        <result column="createTime" property="createTime"/>
+        <association property="store" column="storeId" javaType="Store" select="getStoreName"/>
+    </resultMap>
+
+
+    <!--获得店铺名-->
+    <select id="getStoreName" parameterType="int" resultType="Store">
+        select *from t_store where id = #{id}
+    </select>
+
+
+    <!--审核通过上架请求-->
+    <update id="operationAdd" parameterType="Cuisine">
+        update t_cuisine set status = #{status}, createTime = #{createTime} where id = #{id}
+    </update>
+
+
+    <!--下架食品-->
+    <delete id="deleteCuisine" parameterType="int">
+        delete from t_cuisine where id = #{id}
+    </delete>
+
+
+    <!--分页：获得某一页所需要的数据-->
+    <select id="getPageStore"  parameterType="PageBean" resultMap="pageStoreMap">
+        select * from t_store where status != 0 limit #{startIndex}, #{pageSize}
+    </select>
+    <resultMap id="pageStoreMap" type="Store">
+        <id property="storeId" column="id"/>
+        <result property="storeName" column="storename"/>
+        <result property="shopkeeperName" column="shopkeeperName"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone"/>
+        <result property="storeDescription" column="storeDescription"/>
+        <result property="createTime" column="createTime"/>
+        <result property="status" column="status"/>
+        <association property="user" column="shopkeeperId" select="userMapper.getUserById"/>
+    </resultMap>
+
+
+    <!--得到所有店铺数量-->
+    <select id="getAllStoresNum" parameterType="int" resultType="int">
+        select count(*) from t_store where status != #{status}
+    </select>
+
+
+</mapper>

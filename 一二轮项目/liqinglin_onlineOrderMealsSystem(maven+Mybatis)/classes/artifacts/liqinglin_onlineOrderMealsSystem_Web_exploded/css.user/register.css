@@ -1,0 +1,54 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0px;
+}
+
+h1 {
+	margin-top: 30px;
+}
+
+body  {
+	background:
+		url("/liqinglin_onlineOrderMealsSystem/image/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.content {
+	width: 500px;
+	background-color: rgba(255, 255, 255, 0.6);
+	margin: 10% auto;
+	padding: 5px 20px 50px 50px;
+}
+
+.button, .reset {
+	background-color: white;
+	height: 32px;
+	width: 30%;
+	font-size: 15px;
+	margin: 4px auto;
+}
+
+.password, .repassword, .username, .email, .question, .answer {
+	width: 60%;
+}
+
+.checkcode, .password, .repassword, .username, .email, .question,
+	.answer {
+	height: 25px;
+	font-size: 15px;
+	margin: 10px auto;
+}
+
+.checkcontent {
+	width: 60%;
+}
+
+.checkcode {
+	width: 100%;
+}
+
+.myform {
+	margin-left: 25%;
+}

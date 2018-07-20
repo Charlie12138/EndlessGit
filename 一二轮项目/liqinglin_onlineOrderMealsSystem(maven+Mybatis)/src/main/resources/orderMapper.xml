@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orderMapper">
+    <!--添加整个订单 -->
+    <insert id="addTotalOrder" parameterType="TotalOrder">
+        insert into t_totalorder (orderNum, receiver, address,
+            phone, message, createTime, orderStatus, userId,
+            storeId, totalPrice) values (#{orderNum}, #{receiver}, #{address},
+            #{phone}, #{message}, #{createTime}, #{status}, #{userId}, #{store.storeId}, #{totalPrice})
+    </insert>
+
+    <!--删除订单-->
+    <delete id="deleteOrder" parameterType="int">
+        delete from t_totalorder where id = #{id}
+    </delete>
+
+    <!--获得总订单-->
+    <select id="getTotalOrder" parameterType="String" resultMap="totalOrderMap">
+        select *from t_totalorder where orderNum = #{x}
+    </select>
+    <resultMap id="totalOrderMap" type="TotalOrder">
+        <result property="status" column="orderStatus"/>
+       <association property="store" column="storeId" select="storeMapper.getStoreInfoById"/>
+    </resultMap>
+
+    <!--添加单个商品订单-->
+    <insert id="addSingleOrder" parameterType="SingleOrder">
+        insert into t_singleorder (orderId, storeId, cuisineId, number, totalprice) values (#{orderId}, #{storeId}, #{cuisine.id}, #{number}, #{totalPrice})
+    </insert>
+
+    <!--获得订单中单个商品订单的总数-->
+    <select id="getStoreAllSingleOrderNum" parameterType="int" resultType="int">
+        select count(*) from t_singleorder where orderId = #{id}
+    </select>
+
+    <!--分页：获得某一页所需要的单个商品订单数据-->
+    <select id="getPageSingleOrder" parameterType="java.util.Map" resultMap="singleOrderMap">
+        select * from t_singleorder where orderId = #{orderId} limit #{startIndex}, #{pageSize}
+    </select>
+    <resultMap id="singleOrderMap" type="SingleOrder">
+        <association property="cuisine" column="cuisineId" select="storeMapper.getCuisineInfo"/>
+    </resultMap>
+
+    <!--修改订单状态-->
+    <update id="modifyOrderStatus" parameterType="TotalOrder">
+        update t_totalorder set orderStatus = #{status} where id = #{id}
+    </update>
+
+    <!--获得店铺符合要求订单的数量-->
+    <select id="getStoreOrderCountByStoreId" parameterType="java.util.Map" resultType="int">
+        select count(*) from t_totalorder where storeId = #{id} and orderStatus = #{status}
+    </select>
+    <select id="getStoreOrderCountByUserId" parameterType="java.util.Map" resultType="int">
+        select count(*) from t_totalorder where storeId = #{id} and orderStatus = #{status}
+    </select>
+
+    <!--分页：获得某一页所需要的订单数据-->
+    <select id="getPageOrderByStoreId" parameterType="java.util.Map" resultMap="pageOrderMap">
+        select * from t_totalorder where storeId = #{id} and orderStatus = #{status} limit #{startIndex}, #{pageSize}
+    </select>
+    <select id="getPageOrderByUserId" parameterType="java.util.Map" resultMap="pageOrderMap">
+        select * from t_totalorder where userId = #{id} and orderStatus = #{status} limit #{startIndex}, #{pageSize}
+    </select>
+    <resultMap id="pageOrderMap" type="TotalOrder">
+        <result property="status" column="orderStatus"/>
+        <association property="store" column="storeId" select="storeMapper.getStoreInfoById"/>
+    </resultMap>
+
+
+</mapper>
