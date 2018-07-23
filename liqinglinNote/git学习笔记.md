@@ -212,3 +212,6 @@ $ git branch --set-upstream-to=origin/dev dev
 Branch 'dev' set up to track remote branch 'dev' from 'origin'.
 ```
 
+* 遇到蓝色字体要写说明怎么退出？
+
+  **按住shift ZZ 就返回并且保存了**
