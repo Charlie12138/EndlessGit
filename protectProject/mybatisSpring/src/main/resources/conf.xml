@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <!--userMapper.xml中直接写实体类名-->
+        <package name="com.lql.PO"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="Mapper/userMapper.xml"/>
+    </mappers>
+</configuration>
