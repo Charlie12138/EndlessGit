@@ -238,20 +238,43 @@ public class HelloView implements View {
 ```
 
 1. 数据类型转换
+
 2. 数据类型格式化
+
 3. 数据校验. 
 
-		1). 如何校验 ? 注解 ?
-		①. 使用 JSR 303 验证标准
-		②. 加入 hibernate validator 验证框架的 jar 包
-		③. 在 SpringMVC 配置文件中添加 <mvc:annotation-driven />
-		④. 需要在 bean 的属性上添加对应的注解
-		⑤. 在目标方法 bean 类型的前面添加 @Valid 注解
-	2). 验证出错转向到哪一个页面 ?
-	注意: 需校验的 Bean 对象和其绑定结果对象或错误对象时成对出现的，它们之间不允许声明其他的入参
-	3). 错误消息 ? 如何显示, 如何把错误消息进行国际化
+    1). 如何校验 ? 注解 ?
+    	①. 使用 JSR 303 验证标准
+    	②. 加入 hibernate validator 验证框架的 jar 包
+    	③. 在 SpringMVC 配置文件中添加 <mvc:annotation-driven />
+    	④. 需要在 bean 的属性上添加对应的注解
+    	⑤. 在目标方法 bean 类型的前面添加 @Valid 注解
+    2). 验证出错转向到哪一个页面 ?
+    注意: 需校验的 Bean 对象和其绑定结果对象或错误对象时成对出现的，它们之间不允许声明其他的入参
+    3). 错误消息 ? 如何显示, 如何把错误消息进行国际化
 
-1️⃣:seven:
+:one::seven:字符串转换为employee类型
+
+```
+<form action="testConversionServiceConverer" method="POST">
+		<!-- lastname-email-gender-department.id 例如: GG-gg@atguigu.com-0-105 -->
+		Employee: <input type="text" name="employee"/>
+		<input type="submit" value="Submit"/>
+</form>
+```
+
+```
+@RequestMapping("/testConversionServiceConverter")
+	public String testConverter(@RequestParam("employee") Employee employee) {
+		System.out.println("save:" + employee);
+		employeeDao.save(employee);
+		return "redirect:/emps";
+	}
+```
+
+
+
+1️⃣:eight:
 
 文件上传：
 
@@ -289,7 +312,7 @@ servlet配置：
 	}
 ```
 
-:one::eight:
+:one::nine:
 
 * 需要进行 Spring 整合 SpringMVC 吗 ?
 * 还是否需要再加入 Spring 的 IOC 容器 ?
@@ -323,3 +346,115 @@ beans.xml
 	</context:component-scan>
 ```
 
+:two::zero:
+
+1. 数据类型转换
+
+2. 数据类型格式化
+
+3. 数据校验. 
+    1). 如何校验 ? 注解 ?
+          ①. 使用 JSR 303 验证标准
+          ②.引入 hibernate validator 验证框架依赖
+
+  ```
+  <dependency>
+     <groupId>org.hibernate</groupId>
+     <artifactId>hibernate-validator</artifactId>
+     <version>6.0.1.Final</version>
+  </dependency>
+  ```
+
+  ​        ③. 在 SpringMVC 配置文件中添加 <mvc:annotation-driven />
+           ④. 需要在 bean 的属性上添加对应的注解（@Past, @Email, @NotEmpty······）
+          ⑤. 在目标方法 bean 类型的前面添加 @Valid 注解
+  2). 验证出错转向到哪一个页面 ?
+  注意: 需校验的 Bean 对象和其绑定结果对象或错误对象时成对出现的，它们之间不允许声明其他的入参
+  3). 错误消息 ? 如何显示, 如何把错误消息进行国际化
+
+```
+@RequestMapping(value = "/emp", method = RequestMethod.POST)
+	public String input(@Valid Employee employee, BindingResult bindingResult, Map<String, Object> map) {
+		System.out.println("save:" + employee);
+		if (bindingResult.getErrorCount() > 0) {
+			System.out.println("出错了");
+			for(FieldError error : bindingResult.getFieldErrors()) {
+				System.out.println(error.getField() + ":" + error.getDefaultMessage());
+			}
+			map.put("departments", departmentDao.getDepartments());
+			return "input";
+		}
+		employeeDao.save(employee);
+		return "redirect:/emps";
+	}
+```
+
+:two::one:返回Json
+
+```
+1.导入依赖
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.9.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.9.6</version>
+        </dependency>
+ 2.测试方法
+ @ResponseBody
+	@RequestMapping("/testJson")
+	public Collection<Employee> testJson(){
+		return employeeDao.getAll();
+	}
+```
+
+:two::two:拦截器
+
+```
+public class FirstInterceptor implements HandlerInterceptor {
+	/*该方法在目标方法之前被调用.
+	 * 若返回值为 true, 则继续调用后续的拦截器和目标方法. 
+	 * 若返回值为 false, 则不会再调用后续的拦截器和目标方法. 
+	 * 
+	 * 可以考虑做权限. 日志, 事务等. 
+	 */
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+		System.out.println("[FirstInterceptor] preHandle");
+		return true;
+	}
+	/**
+	 * 调用目标方法之后, 但渲染视图之前. 
+	 * 可以对请求域中的属性或视图做出修改. 
+	 */
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+		System.out.println("[FirstInterceptor] postHandle");
+	}
+	/**
+	 * 渲染视图之后被调用. 释放资源
+	 */
+	@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+		System.out.println("[FirstInterceptor] afterCompletion");
+	}
+}
+```
+
+
+
+
+
+[练习项目源码1](https://github.com/Charlie12138/EndlessGit/tree/master/protectProject/springmvc2)
+
+[练习项目源码2](https://github.com/Charlie12138/EndlessGit/tree/master/protectProject/springmvc3)
