@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liqinglin.www.dao.UserMapper">
+
+    <!--添加用户-->
+    <insert id="addUser" parameterType="User">
+        insert into t_user(username, password, status, createTime) values (#{username}, #{password}, #{status}, #{createTime})
+    </insert>
+
+    <!--获得用户信息-->
+    <select id="getUserByUsername" parameterType="String" resultType="User">
+        select * from t_user where username = #{username}
+    </select>
+
+    <!--获得用户信息-->
+    <select id="getUserById" parameterType="int" resultType="User">
+        select * from t_user where id = #{id}
+    </select>
+
+    <!--检查用户名是否已经注册-->
+    <select id="usernameIsExist" parameterType="String" resultType="int">
+        select count(*) from t_user where username = #{username}
+    </select>
+
+    <!--登录-->
+    <select id="login" parameterType="User" resultType="User">
+        select * from t_user where username=#{username} and password=#{password}
+    </select>
+
+    <!--检查权限-->
+        <!--从用户表找到用户id-->
+    <select id="checkRole" parameterType="User" resultType="User">
+        select * from t_user where username=#{username}
+    </select>
+        <!--查找这个用户是否有某权限-->
+    <select id="getRole" parameterType="User" resultMap="userMap">
+        select * from t_user_role where userId = #{id}
+    </select>
+    <resultMap id="userMap" type="User">
+        <result property="id" column="userId"/>
+        <result property="role" column="roleId"/>
+    </resultMap>
+
+    <!--得到用户所拥有的店铺-->
+    <select id="getUserStore" parameterType="Store" resultMap="StoreMap">
+        select * from t_store where shopkeeperId = #{user.id} and status = #{status}
+    </select>
+    <resultMap id="StoreMap" type="Store">
+        <id property="storeId" column="id"/>
+        <result property="storeName" column="storename"/>
+        <result property="shopkeeperName" column="shopkeeperName"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone"/>
+        <result property="storeDescription" column="storeDescription"/>
+        <result property="createTime" column="createTime"/>
+        <result property="status" column="status"/>
+        <association property="user" column="shopkeeperId" select="getUserById"/>
+    </resultMap>
+
+    <!--修改用户信息-->
+    <update id="modifyUserInfo" parameterType="User">
+        update t_user set realname = #{realname},phone = #{phone}, email = #{email} where id = #{id}
+    </update>
+
+    <!--修改密码-->
+    <update id="modifyPassword" parameterType="User">
+        update t_user set password = #{password} where id = #{id}
+    </update>
+</mapper>
