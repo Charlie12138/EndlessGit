@@ -213,7 +213,7 @@ public class HelloView implements View {
 
 :one::four:
 
-@Autowired 注释，它可以对类成员变量、方法及构造函数进行标注，完成自动装配的工作。 过 @Autowired的使用标注到成员变量时不需要有set方法，请注意@Autowired 默认按类型匹配的 
+@Autowired 注释，它可以对类成员变量、方法及构造函数进行标注，完成自动装配的工作。 通过 @Autowired的使用标注到成员变量时不需要有set方法，请注意@Autowired 默认按类型匹配的 
 
 :one::five:
 
