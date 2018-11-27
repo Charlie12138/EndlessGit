@@ -1,5 +1,94 @@
 # Spring  
 
+##### :zero:IDEA开发一个spring的项目
+
+1.新建项目
+
+![](https://img-blog.csdn.net/20180616220252338?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pY3VzZA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+```xml
+ <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.0.7.RELEASE</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.1</version>
+    </dependency>
+```
+
+web.xml
+
+```xml
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:newWeb-context.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+ 
+  <servlet>
+    <servlet-name>newWeb</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value></param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>newWeb</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+```
+
+
+
+
+
 ##### :one:spring框架可以管理web层，业务层，dao层，持久层，该spring可以配置各个组件（bean)，并且维护各个bean之间的关系
 
 ------
@@ -20,7 +109,6 @@
 
   ------
 
-  
 
 ##### :three:**从ApplicationContext应用上下文容器中获取bean和从bean工厂容器中获取bean**
 
@@ -348,7 +436,7 @@ public class App
 
 2.spring的声明式事务：
 
-​	DAO层的事务控制，通常是指对于数据库访问操作的事务处理，普通的实现方式即使用代码来控制事务的提交(commit)、回滚(rollback)等操作，这些代码若不使用框架进行整合，会造成DAO层和业务逻辑层的高耦合。由此spring提供了声明式事务的方案，即用声明式的事务代替代码式的事务。事务控制使用注解和配置文件声明等方式实现，其基本原理是使用AOP进行方法级别的事务控制，当然你也可以利用spring的规范自定义自己的代码式事务并使用AOP绑定自定义的声明式事务。
+	DAO层的事务控制，通常是指对于数据库访问操作的事务处理，普通的实现方式即使用代码来控制事务的提交(commit)、回滚(rollback)等操作，这些代码若不使用框架进行整合，会造成DAO层和业务逻辑层的高耦合。由此spring提供了声明式事务的方案，即用声明式的事务代替代码式的事务。事务控制使用注解和配置文件声明等方式实现，其基本原理是使用AOP进行方法级别的事务控制，当然你也可以利用spring的规范自定义自己的代码式事务并使用AOP绑定自定义的声明式事务。
 
 ```
 DataSourceTransactionManager 单一数据源事务管理器，依赖于你的某一个datasource，提供对单个DataSource的事务管理。

@@ -40,6 +40,38 @@
 
 ![](https://raw.githubusercontent.com/Charlie12138/EndlessGit/master/picture/3985563-cd59a3899ef546e1.png)
 
+```xml
+GET http://localhost:8080/netty-5.0.0 HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.92 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: Idea-e567682=4d8d4663-cd3e-4b1a-bbde-2fab218ce89b; Idea-7637a361=968383a8-158b-487b-bc62-def1dd398bc8
+```
+
+Accept:用于指定客户端接受哪些类型的信息。
+
+Accept-Charset:用于指定客户端接受的字符集。
+
+Accept-Encoding:用于指定可以接受的内容编码。
+
+Accept-Language:用于指定一种自然语言。
+
+Authorization:主要用于证明客户端有权查看某个资源。当浏览器访问一个页面时，如果收到服务器响应代码为401（未授权），可以发送一个包含Authorization请求报头域的请求，要求服务器对其进行验证。
+
+Host:（必需）用于指定被请求资源的Internet主机和端口号，它通常时HTTP URL中提取出来的。
+
+User-Agent:允许客户端将他的操作系统、浏览器和其他属性告诉服务器。
+
+Content-Length:请求信息的长度。
+
+Content-Type:表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定text/html，由于经常要设置Content-Type，因此HttpServletResponse提供了一个专用的方法setContentType.
+
+Connection:连接类型。
+
 
 
 ##### 4.Web服务器应答
@@ -137,11 +169,7 @@ TCP连接在发送后将仍然保持打开状态. 于是, 浏览器可以继续�
 
 1. 客户端发起明文请求：将自己支持的一套==加密规则、以及一个随机数（Random_C）==发送给服务器。
 
-   
-
 2. 服务器初步响应：服务器根据自己支持的加密规则，从客户端发来的请求中选出一组加密算法与HASH算法，生成随机数，并将自己的身份信息以证书（CA）的形式发回给浏览器。CA证书里面包含了服务器地址，加密公钥，以及证书的颁发机构等信息。这时服务器给客户端的包括选择使用的==加密规则、CA证书、一个随机数（Random_S）==。
-
-   
 
 3. 客户端接到服务器的初步响应后做四件事情：
     （1）==证书校验==： 验证证书的合法性（颁发证书的机构是否合法，证书中包含的网站地址是否与正在访问的地址一致等）。
@@ -161,8 +189,6 @@ TCP连接在发送后将仍然保持打开状态. 于是, 浏览器可以继续�
 
    （3）客户端加密生成的握手信息。 
 
-   
-
 5. 服务器接收客户端发来的数据要做以下四件事情：
 
    （1）私钥解密：使用自己的私钥从接收到的enc_pre_master中解密取出密码==Pre_master==。
@@ -175,7 +201,7 @@ TCP连接在发送后将仍然保持打开状态. 于是, 浏览器可以继续�
 
     (3）解密握手消息：使用协商密钥enc_key解密客户端发来的握手消息，并验证HASH是否与客户端发来的一致。
 
-​      （4）生成==握手消息==使用协商密钥enc_key及约定好的算法加密一段握手消息，发送给客户端。
+      （4）生成==握手消息==使用协商密钥enc_key及约定好的算法加密一段握手消息，发送给客户端。
 
 
 

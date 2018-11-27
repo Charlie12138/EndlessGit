@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       default-lazy-init="true">
+
+    <description>Shiro Configuration</description>
+
+    <!-- Shiro's main business-tier object for web-enabled applications -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myShiroRealm" />
+        <property name="cacheManager" ref="cacheManager" />
+    </bean>
+
+    <!-- 項目自定义的Realm -->
+    <bean id="myShiroRealm" class="Realm.MyShiroRealm">
+        <property name="cacheManager" ref="cacheManager" />
+    </bean>
+
+    <!-- Shiro Filter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <!--没有登录的用户请求需要登录的页面时自动跳转到登录页面，可配置也可不配置-->
+        <property name="loginUrl" value="/login.jhtml" />
+        <!--登录成功默认跳转页面，不配置则跳转至“/”，一般可以不配置，直接通过代码进行处理-->
+        <property name="successUrl" value="/loginsuccess.jhtml" />
+        <!--没有权限默认跳转的界面-->
+        <property name="unauthorizedUrl" value="/error.jhtml" />
+        <property name="filterChainDefinitions">
+            <value>
+                /index.jhtml = authc
+                /login.jhtml = anon
+                /checkLogin.json = anon
+                /loginsuccess.jhtml = anon
+                /logout.json = anon
+                /** = authc
+            </value>
+        </property>
+    </bean>
+
+    <!-- 用户授权信息Cache -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
+
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+    <!-- AOP式方法级权限检查 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true" />
+    </bean>
+
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager" />
+    </bean>
+
+</beans>
