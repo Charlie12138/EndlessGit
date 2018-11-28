@@ -6,11 +6,130 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fd8d99-c3a6-4598-942a-522763f2282b" name="Default" comment="" />
+    <list default="true" id="80fd8d99-c3a6-4598-942a-522763f2282b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/CuisineController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../liqinglinNote/笔记/Shiro.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../liqinglinNote/笔记/Shiro.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../liqinglin_onlineOrderMealsSystem(SSM)/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../liqinglin_onlineOrderMealsSystem(SSM)/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/AddCuisinesServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/AddToCartServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/AgreeAddCuisinesServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/AgreeOpenStoreServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/AgreeRegisterServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/BuyCuisineServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/CancelOrderServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ClearCartServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ConfirmReceiveServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/DeleteCuisinesServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/DeleteOrderServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ExamineAddCuisinesServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ExamineOpenStoreServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ExamineRegisterServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/GetOrderDetailServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ListAllCuisinesServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ListAllStoresServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ListCuisinesServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ListNotSendOrderServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ListSendedOrderServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ListShopCartInfoServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ListTotalOrderServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ManagerStoreServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ModifyCuisinesInfoServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/ModifyPasswordServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/PayCartOrderServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/RejectAddCuisinesServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/RejectOpenStoreServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/SearchServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/SendCuisineServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/SubmitCartOrderInfoServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/SubmitCuisineInfoServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/SubmitOrderInfoServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/SubmitStoreInfoServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/SubmitUserInfoServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/UniformEncodingFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/UserDropOutServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/UserLoginServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/UserOpenStoreServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/controller/UserRegisterServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/dao/AdminDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/dao/CartDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/dao/OrderDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/dao/StoreDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/po/Cart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/po/CartInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/po/Cuisine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/po/PageBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/po/SingleOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/po/Store.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/po/TotalOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/po/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/service/AdminService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/service/CartService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/service/DataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/service/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/service/StoreService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/util/Contants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/util/DbUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/util/OrderNumUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/classes/com/liqinglin/www/util/UploadUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/admin/adminIndex.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/admin/examineAddCuisine.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/admin/examineOpenStore.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/admin/examineRegister.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/admin/managerStores.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/css.admin/adminIndex.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/css.store/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/css.store/openStore.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/css.store/store.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/css.user/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/css.user/register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/css.user/user.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/image/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/public/enter.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/public/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store.js/addCuisine.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store.js/openStore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/addCuisine.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/deleteCuisine.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/handleOrder.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/listOrderDetail.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/listTotalOrder.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/modifyCuisineInfo.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/modifyCuisineInfoIndex.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/modifyStoreInfo.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/openStore.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/selectStore.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/store/storeIndex.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user.js/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user.js/register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/buyNow.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/fillCartOrder.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/fillOrder.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/listOrderDetail.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/listTotalOrder.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/modifyPassword.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/modifyUserInfo.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/myShopCart.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/paySuccess.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/userIndex.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/userLogin.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/userOrderIndex.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_Web_exploded/user/userRegister.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/artifacts/liqinglin_onlineOrderMealsSystem_war_exploded/picture.lnk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/adminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/adminMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cartMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/cartMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/orderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/orderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/storeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/storeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/userMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/userMapper.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,11 +152,77 @@
     <expand />
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="984863541">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="2" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/adminMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1345">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/conf.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/CuisineController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/AddCuisinesServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -62,10 +247,12 @@
       <replace>AdminMapper</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/RejectOpenStoreServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/liqinglin/www/service/DataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/liqinglin/www/po/Cuisine.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/admin/examineAddCuisine.jsp" />
@@ -116,6 +303,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/ClearCartServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/AddToCartServlet.java" />
         <option value="$PROJECT_DIR$/webapp/user/userIndex.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/CuisineController.java" />
       </list>
     </option>
   </component>
@@ -131,6 +319,13 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -148,59 +343,94 @@
       <select />
     </treeState>
   </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="611" />
-    <option name="y" value="327" />
-    <option name="width" value="1248" />
-    <option name="height" value="897" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="liqinglin_onlineOrderMealsSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liqinglin_onlineOrderMealsSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="liqinglin_onlineOrderMealsSystem(maven+Mybatis)" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/eclipse jee/WS/liqinglin_onlineOrderMealsSystem/src/main/java/com/liqinglin/www/dao/StoreDao.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543408283618" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../liqinglin_onlineOrderMealsSystem(SSM)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15527344" />
     <property name="project.structure.side.proportion" value="0.104931794" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\eclipse jee\WS\liqinglin_onlineOrderMealsSystem\WebContent\WEB-INF\lib" />
+      <recent name="F:\eclipse jee\WS\liqinglin_onlineOrderMealsSystem" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\$1TOPVIEW\EndlessGit\一二轮项目\liqinglin_onlineOrderMealsSystem(maven+Mybatis)\src\main\resources\mapper" />
       <recent name="F:\eclipse jee\WS\liqinglin_onlineOrderMealsSystem" />
       <recent name="F:\eclipse jee\WS\liqinglin_onlineOrderMealsSystem\src" />
       <recent name="F:\eclipse jee\WS\liqinglin_onlineOrderMealsSystem\src\main" />
       <recent name="F:\eclipse jee\WS\liqinglin_onlineOrderMealsSystem\src\java" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\eclipse jee\WS\liqinglin_onlineOrderMealsSystem\WebContent\WEB-INF\lib" />
-      <recent name="F:\eclipse jee\WS\liqinglin_onlineOrderMealsSystem" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -218,46 +448,29 @@
   <component name="RunManager" selected="Tomcat Server.mealCat">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="enter.jsp (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/liqinglin_onlineOrderMealsSystem/public/enter.jsp" />
-    <configuration name="enter.jsp" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/public/enter.jsp" />
+    <configuration name="enter.jsp (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/liqinglin_onlineOrderMealsSystem/public/enter.jsp">
+      <method v="2" />
+    </configuration>
+    <configuration name="enter.jsp" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/public/enter.jsp">
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="enter.jsp" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 8.5.31" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/public/enter.jsp" />
@@ -324,8 +537,8 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
-      <method>
-        <option name="BuildArtifacts" enabled="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="mealCat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.31" ALTERNATIVE_JRE_ENABLED="false">
@@ -393,7 +606,8 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
-      <method>
+      <method v="2">
+        <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="liqinglin_onlineOrderMealsSystem:war exploded" />
         </option>
@@ -439,11 +653,12 @@
       <workItem from="1531902005848" duration="18743000" />
       <workItem from="1531961635741" duration="36715000" />
       <workItem from="1532048154552" duration="7979000" />
+      <workItem from="1543406927284" duration="1107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159294000" />
+    <option name="totallyTimeSpent" value="160401000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -455,75 +670,76 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5006748" side_tool="true" weight="0.34876543" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3287037" />
-      <window_info anchor="right" id="Maven Projects" order="3" weight="0.35492578" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="3" weight="0.3299595" />
+      <window_info id="Learn" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24517168" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24966262" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24966262" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8367072" weight="0.6064815" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3287037" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.16329284" weight="0.9351852" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.3287037" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49730095" weight="0.6697531" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24561404" />
-      <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3294271" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32921174" />
-    </layout>
-    <layout-to-restore>
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32965517" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Palette" order="3" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932525" weight="0.39876354" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24966262" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32921174" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49730095" weight="0.6697531" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8367072" weight="0.6064815" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3287037" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.3287037" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006748" side_tool="true" weight="0.34876543" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.16329284" weight="0.9351852" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3287037" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24966262" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.35492578" />
+      <window_info anchor="right" id="Database" order="6" weight="0.3299595" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3294271" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22941971" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32921174" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932525" weight="0.39876354" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39876354" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32965517" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006748" side_tool="true" weight="0.34876543" />
       <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.32766616" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24966262" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.35492578" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22941971" />
       <window_info anchor="right" id="Database" order="6" weight="0.3299595" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3294271" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32921174" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39876354" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,9 +749,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="222" />
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="path" />
@@ -547,24 +760,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/RejectAddCuisinesServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/admin/adminIndex.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/css.store/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="183" column="4" selection-start-line="183" selection-start-column="4" selection-end-line="183" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/$1TOPVIEW/EndlessGit/一二轮项目/后台-李清林/liqinglin_onlineOrderMealsSystem/src/com/liqinglin/www/dao/StoreDao.java">
+    <entry file="file://$PROJECT_DIR$/../后台-李清林/liqinglin_onlineOrderMealsSystem/src/com/liqinglin/www/dao/StoreDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5472" />
       </provider>
@@ -573,13 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/adminMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -619,12 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-          <folding>
-            <element signature="e#358#359#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1182#1183#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,36 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="30" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#890#891#0" expanded="true" />
-            <element signature="e#919#920#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#1004#1005#0" expanded="true" />
-            <element signature="e#1031#1032#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
-            <element signature="e#1089#1090#0" expanded="true" />
-            <element signature="e#1138#1139#0" expanded="true" />
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1208#1209#0" expanded="true" />
-            <element signature="e#1233#1234#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1418#1419#0" expanded="true" />
-            <element signature="e#1447#1448#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -777,13 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/conf.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="45" column="43" lean-forward="true" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/liqinglin/www/dao/OrderDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2717">
@@ -791,14 +937,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/userMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/userMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/orderMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/orderMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-795">
           <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
@@ -816,10 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#1960#1961#0" expanded="true" />
-            <element signature="e#1978#1979#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -844,7 +986,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/storeMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/storeMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="6" column="32" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="32" />
@@ -872,7 +1014,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cartMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/cartMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
           <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
@@ -897,9 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="175" selection-start-line="175" selection-end-line="175" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -948,6 +1087,37 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/adminMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1345">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/conf.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="45" column="43" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/CuisineController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/liqinglin/www/controller/AddCuisinesServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -981,6 +1151,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Bundled Protobuf Distribution</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1004,7 +1175,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>liqinglin_onlineOrderMealsSystem</last-edited>
+          <last-edited>Web|liqinglin_onlineOrderMealsSystem</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liqinglin.www.dao.StoreMapper">
+    <!--获得某个店铺的信息-->
+    <select id="getStoreInfoById" parameterType="int" resultMap="storeMap1">
+        select * from t_store where id =#{id}
+    </select>
+    <resultMap id="storeMap1" type="Store">
+        <id property="storeId" column="id"/>
+        <association property="user" column="shopkeeperId" select= "com.liqinglin.www.dao.UserMapper.getUserById"/>
+    </resultMap>
+
+    <!--获得某个店铺的信息-->
+    <select id="getStoreInfoByName" parameterType="String" resultMap="storeMap2">
+        select * from t_store where storename = #{storename}
+    </select>
+    <resultMap id="storeMap2" type="Store">
+        <id property="storeId" column="id"/>
+        <association property="user" column="shopkeeperId" select="com.liqinglin.www.dao.UserMapper.getUserById"/>
+    </resultMap>
+
+    <!--上架美食-->
+    <insert id="addCuisine" parameterType="Cuisine">
+        insert into t_cuisine (storeId, cuisineName, price, description, picturePath, status, createTime, sellCount) values (#{store.storeId}, #{cuisineName}, #{price}, #{description}, #{picturePath}, #{status}, #{createTime}, #{sellCount})
+    </insert>
+
+    <!--得到菜肴信息-->
+    <select id="getCuisineInfoById" parameterType="int" resultMap="cuisineMap">
+        select *from t_cuisine where id = #{id}
+    </select>
+    <resultMap id="cuisineMap" type="Cuisine">
+        <association property="store" column="storeId" select="getStoreInfoById"/>
+    </resultMap>
+
+    <!--修改菜肴信息-->
+    <update id="updateCuisineInfo" parameterType="Cuisine">
+        update t_cuisine set cuisineName = #{cuisineName}, price = #{price}, description = #{description}, picturePath = #{picturePath} where id = #{id}
+    </update>
+
+    <!--修改店铺信息-->
+    <update id="updateStoreInfo" parameterType="Store">
+        update t_store set storeName = #{storeName},shopkeeperName = #{shopkeeperName}, address = #{address},
+            phone = #{phone}, storeDescription = #{storeDescription} where id = #{storeId}
+    </update>
+    
+    <!--获得所有菜肴的数量-->
+    <select id="getAllCuisineNum" resultType="int">
+        select count(*) from t_cuisine
+    </select>
+
+    <!--菜肴分页：获得某一页所需要的数据-->
+    <select id="getPageCuisine" parameterType="PageBean" resultMap="pageCuisineMap">
+        select * from t_cuisine limit #{startIndex}, #{pageSize}
+    </select>
+
+    <!--菜肴分页：获得某一页所需要的数据(同一个店铺)-->
+    <select id="getPageCuisineByStore" parameterType="PageBean" resultMap="pageCuisineMap">
+        select * from t_cuisine where storeId = #{storeId} limit #{startIndex}, #{pageSize}
+    </select>
+    <resultMap id="pageCuisineMap" type="Cuisine">
+        <association property="store" column="storeId" select="getStoreInfoById"/>
+    </resultMap>
+
+
+
+    <!--修改销量-->
+    <select id="selectSellCount" parameterType="int" resultType="Cuisine">
+        select *from t_cuisine where id = #{cuisineId}
+    </select>
+    <update id="modifySellCount" parameterType="int">
+        update t_cuisine set sellCount = #{sellCount} where id = #{id}
+    </update>
+
+    <!--获得搜索出的记录数-->
+    <select id="getCuisinesNumByCuisineName" parameterType="String" resultType="int">
+        select count(*) from t_cuisine where cuisineName like "%" + #{key} + "%"
+    </select>
+
+    <select id="getCuisinesNumByStoreId" parameterType="int" resultType="int">
+        select count(*) from t_cuisine where storeId = #{id}
+    </select>
+
+    <!--分页准备-->
+    <select id="searchByCuisine" parameterType="java.util.Map" resultMap="searchByCuisineMap">
+        select * from t_cuisine where cuisineName like "%" + #{key} + "%" limit #{startIndex}, #{pageSize}
+    </select>
+    <resultMap id="searchByCuisineMap" type="Cuisine">
+        <association property="store" column="storeId" select="getStoreInfoById"/>
+    </resultMap>
+
+    <select id="searchByStore" parameterType="java.util.Map" resultMap="searchByStoreMap">
+        select * from t_cuisine where storeId = #{storeId} limit #{startIndex}, #{pageSize}
+    </select>
+    <resultMap id="searchByStoreMap" type="Cuisine">
+        <association property="store" column="storeId" select="getStoreInfoById"/>
+    </resultMap>
+
+    <!--得到某个店铺的所有菜肴的数量-->
+    <select id="getUserAllCuisines" parameterType="int" resultType="int">
+        select count(*) from t_cuisine where storeId = #{id}
+    </select>
+
+    <!--检查店铺名是否已经注册-->
+    <select id="storeNameIsExist" parameterType="String" resultType="int">
+        select count(*) from t_store where storeName=#{storeName}
+    </select>
+
+
+    <!--用户开店信息录入数据库-->
+    <select id="openStore" parameterType="String" resultType="User">
+        select * from t_user where username = #{user.username}
+    </select>
+
+    <insert id="insertStoreInfo" parameterType="Store">
+        insert into t_store (storename, shopkeeperName, address, phone, storeDescription,
+                             shopkeeperId, createTime, status) values (#{storeName}, #{shopkeeperName}, #{address}, #{phone},
+                                                                       #{storeDescription}, #{user.id}, #{createTime}, #{status})
+    </insert>
+
+</mapper>

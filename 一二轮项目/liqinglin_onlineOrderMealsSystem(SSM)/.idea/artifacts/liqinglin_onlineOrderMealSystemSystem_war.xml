@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="liqinglin_onlineOrderMealSystemSystem:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="liqinglin_onlineOrderMealSystemSystem-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="liqinglin_onlineOrderMealSystemSystem:war exploded" />
+    </root>
+  </artifact>
+</component>

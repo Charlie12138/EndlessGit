@@ -172,3 +172,124 @@ public class MyShiroRealm extends AuthorizingRealm {
   *  /admins/user/**=port[8081] 当请求的URL端口不是8081时,跳转到schemal://serverName:8081?queryString，其中schemal是协议http或https等,serverName是你访问的Host,8081是Port端口,queryString是你访问的URL里的?后面的参数 
   * /admins/user/** = rest[user] 根据请求的方法,相当于/admins/user/**=perms[user:method],其中method为post,get,delete等 
   * /admins/user/** = roles[admin]  参数可写多个,多个时必须加上引号,且参数之间用逗号分割,如/admins/user/**=roles[“admin,guest”] ，当有多个参数时必须每个参数都通过才算通过,相当于hasAllRoles()方法
+
+### 1.4Controller
+
+```java
+public class UserController {
+
+	@RequestMapping("/index.jhtml")
+	public ModelAndView getIndex(HttpServletRequest request) {
+		return new ModelAndView("index");
+	}
+
+	@RequestMapping("/exceptionForPageJumps.jhtml")
+	public ModelAndView exceptionForPageJumps(HttpServletRequest request) {
+		throw new BusinessException(LuoErrorCode.NULL_OBJ);
+	}
+
+	@RequestMapping(value = "/bussinessException.json", method = RequestMethod.POST)
+	@ResponseBody
+	public String bussinessException(HttpServletRequest request) throws Exception {
+		throw new Exception();
+	}
+
+	//跳转到登录成功界面
+	@RequestMapping("/login.jhtml")
+	public ModelAndView login() {
+		return new ModelAndView("login");
+	}
+
+	@RequestMapping("/newPage.jhtml")
+	public ModelAndView newPage() {
+		return new ModelAndView("newPage");
+	}
+
+	@RequestMapping("/newPageNotAdd.jhtml")
+	public ModelAndView newPageNotAdd() {
+		return new ModelAndView("newPageNotAdd");
+	}
+
+	/**
+	 * 验证用户名和密码
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	@RequestMapping(value = "/checkLogin.json", method = RequestMethod.POST)
+	@ResponseBody
+	public String checkLogin(String username, String password) {
+		Map<String, Object> result = new HashMap<>();
+		try{
+			UsernamePasswordToken token = new UsernamePasswordToken(username, DecriptUtil.MD5(password));
+			Subject currentUser = SecurityUtils.getSubject();
+			if (!currentUser.isAuthenticated()) {
+				token.setRememberMe(true);
+				currentUser.login(token);
+			}
+		} catch (Exception e) {
+			throw new BusinessException(LuoErrorCode.LOGIN_VERIFY_FAILURE);
+		}
+		result.put("success", true);
+		return JSONUtils.toJSONString(result);
+	}
+
+	@RequestMapping(value = "/logout.json", method = RequestMethod.POST)
+	@ResponseBody
+	public String logout() {
+		Map<String, Object> result = new HashMap<>();
+		result.put("success", true);
+		Subject currentUser = SecurityUtils.getSubject();
+		currentUser.logout();
+		return JSONUtils.toJSONString(result);
+	}
+}
+```
+
+### 1.5login.jsp代码
+
+```html
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+
+<head>
+<script src="<%=request.getContextPath()%>/static/bui/js/jquery-1.8.1.min.js"></script>
+</head>
+
+<body>
+username: <input type="text" id="username"><br><br>  
+password: <input type="password" id="password"><br><br>
+登录
+</body>
+
+<script type="text/javascript">
+$('#loginbtn').click(function() {
+    var param = {
+        username : $("#username").val(),
+        password : $("#password").val()
+    };
+    $.ajax({ 
+        type: "post", 
+        url: "<%=request.getContextPath()%>" + "/checkLogin.json", 
+        data: param, 
+        dataType: "json", 
+        success: function(data) { 
+            if(data.success == false){
+                alert(data.errorMsg);
+            }else{
+                //登录成功
+                window.location.href = "<%=request.getContextPath()%>" +  "/loginsuccess.jhtml";
+            }
+        },
+        error: function(data) { 
+            alert("调用失败...."); 
+        }
+    });
+});
+</script>
+
+</html>
+
+
+```
+
