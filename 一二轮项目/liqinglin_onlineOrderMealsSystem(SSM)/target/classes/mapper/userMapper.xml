@@ -2,11 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liqinglin.www.dao.UserMapper">
+<mapper namespace="com.liqinglin.www.mapper.UserMapper">
 
     <!--添加用户-->
-    <insert id="addUser" parameterType="User">
+    <insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
         insert into t_user(username, password, status, createTime) values (#{username}, #{password}, #{status}, #{createTime})
+    </insert>
+    <insert id="addRole" parameterType="int">
+        insert into t_user_role(userId, roleId) values (#{id}, 1)
     </insert>
 
     <!--获得用户信息-->

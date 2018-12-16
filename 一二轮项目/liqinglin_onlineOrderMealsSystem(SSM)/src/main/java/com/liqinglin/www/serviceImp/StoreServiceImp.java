@@ -2,7 +2,7 @@ package com.liqinglin.www.serviceImp;
 
 
 
-import com.liqinglin.www.dao.StoreMapper;
+import com.liqinglin.www.mapper.StoreMapper;
 import com.liqinglin.www.po.Cuisine;
 import com.liqinglin.www.po.PageBean;
 import com.liqinglin.www.po.Store;
@@ -133,16 +133,17 @@ public class StoreServiceImp implements StoreService {
 	public PageBean<Cuisine> search(String choose, String key, int pageNum, int pageSize) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		PageBean<Cuisine> pb = null;
-		map.put("key", key);
 		map.put("pageSize", pageSize);
 		if(choose.equals(Contants.CUISINE)) {
-			Store store = storeMapper.getCuisinesNumByCuisineName(key);
-			int totalRecord = storeMapper.getCuisinesNumByStoreId(store.getStoreId());
+			map.put("key", key);
+			int totalRecord = storeMapper.getCuisinesNumByCuisineName(key);
 			pb = new PageBean<Cuisine>(pageNum, pageSize, totalRecord);
 			int startIndex = pb.getStartIndex();  //获得开始的索引
 			map.put("startIndex", startIndex);
 			pb.setList(storeMapper.searchByCuisine(map));
 		} else {
+			Store store = storeMapper.getStoreInfoByName(key);
+			map.put("storeId", store.getStoreId());
 			int totalRecord = storeMapper.getCuisinesNumByStoreName(key);
 			pb = new PageBean<Cuisine>(pageNum, pageSize, totalRecord);
 			int startIndex = pb.getStartIndex();  //获得开始的索引
@@ -176,10 +177,11 @@ public class StoreServiceImp implements StoreService {
 	public int openStroe(Store store) {
 		User user = storeMapper.openStore(store);
 		store.setUser(user);
-		int result = storeMapper.insertStoreInfo(store);
 		if (storeMapper.storeNameIsExist(store.getStoreName()) != 0) {
 			return Contants.STORENAME_EXIST_CODE;
-		} else if (result == 1) {
+		}
+		int result = storeMapper.insertStoreInfo(store);
+		if (result == 1) {
 			return Contants.SUCCESS_CODE; // 该用户不存在
 		}
 		return Contants.FAIL_CODE;

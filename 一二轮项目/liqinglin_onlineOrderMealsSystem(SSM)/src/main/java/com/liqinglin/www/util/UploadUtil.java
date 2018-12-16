@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,7 +24,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.liqinglin.www.po.Cuisine;
 import com.liqinglin.www.serviceImp.StoreServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class UploadUtil {
 
@@ -73,7 +75,6 @@ public class UploadUtil {
 								cuisine.setId(Integer.parseInt(value));
 							} 
 						} catch (UnsupportedEncodingException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 					} else {
@@ -87,50 +88,38 @@ public class UploadUtil {
 						}
 
 						// 判断图片后缀名格式是否正确
-						try {
-							if (service.imageFormatIsRight(filename) == Contants.IMAGE_FORMAT_IS_ERROR_CODE) {
-								return cuisine;
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
+						if (service.imageFormatIsRight(filename) == Contants.IMAGE_FORMAT_IS_ERROR_CODE) {
+							return cuisine;
 						}
 
-						/**
-						 *  符合条件
-						 * 	解决老版本浏览器IE6 文件路径存在问题
-						 */
+						//解决老版本浏览器IE6 文件路径存在问题
 						if (filename.contains("\\")) {
 							filename = filename.substring(filename.lastIndexOf("\\") + 1);// 获取图片名字最后的格式
 						}
+
 						InputStream in = null;
 						try {
 							in = new BufferedInputStream(fileItem.getInputStream());
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
-						} // 文件内容
+						}
 
 						// 保证上传文件名唯一
 						filename = UUID.randomUUID().toString() + filename;
-						
-						File path = new File(request.getSession().getServletContext().getRealPath("/picture/upload"));
-						
-						String pathName = path.toString().replace("\\", "/") + "/" + filename;
+						String path = request.getSession().getServletContext().getRealPath("/picture/upload");
+						path = path.replace("\\", "/");
+						File file = new File(path);
+						String pathName = file.toString().replace("\\", "/") + "/" + filename;
 						//int indexOf(String str)返回指定字符在字符串中第一次出现处的索引，如果此字符串中没有这样的字符，则返回 -1。
 						String picturePath = pathName.substring(pathName.indexOf("/picture"));// 获得商品图片所在目录
-
-						path.mkdirs();
-
+						file.mkdirs();
 						cuisine.setPicturePath(picturePath);
-						
-						// 将文件内容输出WEB-INF/upload 目录
-						File targetFile = new File(path, filename);// 创建路径是path，名字是filename的文件。
-
+						// 将文件内容输出web/picture/upload 目录
+						File targetFile = new File(file, filename);// 创建路径是path，名字是filename的文件。
 						OutputStream out = null;
 						try {
 							out = new BufferedOutputStream(new FileOutputStream(targetFile));
 						} catch (FileNotFoundException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 
@@ -143,7 +132,6 @@ public class UploadUtil {
 							out.close();
 							in.close();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						
@@ -152,9 +140,8 @@ public class UploadUtil {
 					}
 				}
 			} catch (FileUploadException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}			
+			}
 		}
 		return cuisine;
 	}

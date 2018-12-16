@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liqinglin.www.dao.CartMapper">
+<mapper namespace="com.liqinglin.www.mapper.CartMapper">
     <!--为用户添加购物车-->
     <insert id="addCart" parameterType="int">
         insert into t_shopcart (userId) values (#{id})
@@ -61,8 +61,8 @@
 
     <resultMap id="cartInfoMap" type="CartInfo">
         <association property="cart" column="cartId" select="getCartByCartId"/>
-        <association property="cuisine" column="cuisineId" select="com.liqinglin.www.dao.StoreMapper.getCuisineInfoById"/>
-        <association property="store" column="storeId" select="com.liqinglin.www.dao.StoreMapper.getStoreInfoById"/>
+        <association property="cuisine" column="cuisineId" select="com.liqinglin.www.mapper.StoreMapper.getCuisineInfoById"/>
+        <association property="store" column="storeId" select="com.liqinglin.www.mapper.StoreMapper.getStoreInfoById"/>
     </resultMap>
 
     <!--修改购物车某商品的数量和总价格-->

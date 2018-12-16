@@ -5,18 +5,11 @@ public class Contants {
 	public final static int PASSWORD_FORMAT_ERROR_CODE = 0; // 密码格式错误
 	public final static int CHECK_PASSWORD_RIGHT_CODE = 1; // 两次密码一致
 	public final static int CHECK_PASSWORD_ERROR_CODE = 0; // 两次密码不一致
-	public final static int EMAIL_FORMAT_RIGHT_CODE = 1; // 邮箱格式正确
-	public final static int EMAIL_FORMAT_ERROR_CODE = 0; // 邮箱格式错误
 	public final static int USERNAME_FORMAT_RIGHT_CODE = 1; // 用户名格式正确
 	public final static int USERNAME_FORMAT_ERROR_CODE = 0; // 用户名格式错误
-	public final static int PHONE_FORMAT_RIGHT_CODE = 1; // 用户名格式正确
-	public final static int PHONE_FORMAT_ERROR_CODE = 0; // 用户名格式错误
-	
-	public final static String PASSWORD_FORMAT_RIGHT = " 密码格式正确"; 
-	public final static String PASSWORD_FORMAT_ERROR = "密码格式错误"; 
-	public final static String CHECK_PASSWORD_RIGHT = "两次密码一致";
+
+	public final static String PASSWORD_FORMAT_ERROR = "密码格式错误";
 	public final static String CHECK_PASSWORD_ERROR = "密码两次不一致";
-	public final static String USERNAME_FORMAT_RIGHT = "用户名格式正确";	
 	public final static String USERNAME_FORMAT_ERROR = "用户名格式错误";
 	
 	public final static int USERNAME_EXIST_CODE = 0; // 用户存在
@@ -31,7 +24,6 @@ public class Contants {
 	public final static String FAIL = "操作失败";
 	
 	public final static String LOGIN_SUCCEESS = "成功登录";
-	public final static String LOGIN_FAIL = "登录失败";
 	public final static String PASSWORD_ERROR = "密码错误";
 	public final static int NOT_EXAMINE_CODE= 4; //审核中
 	public final static String REGISTER_EXAMINEING = "请等待审核通过";
@@ -71,10 +63,8 @@ public class Contants {
 	
 	public final static int STORE_ORDER = 1;//返回商店的订单
 	public final static int USER_ORDER = 2;//返回用户的订单
-	
-	public final static String ADD_TO_CART_SUCCESS = "成功加入购物车";
+
 	
 	public final static String CUISINE = "cuisine";//搜索选中的时美食
-	public final static String STORE = "store";//搜索选中的时店铺
 
 }

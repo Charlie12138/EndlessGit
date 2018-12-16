@@ -2,7 +2,7 @@ package com.liqinglin.www.serviceImp;
 
 import java.util.List;
 
-import com.liqinglin.www.dao.AdminMapper;
+import com.liqinglin.www.mapper.AdminMapper;
 import com.liqinglin.www.po.Cuisine;
 import com.liqinglin.www.po.PageBean;
 import com.liqinglin.www.po.Store;

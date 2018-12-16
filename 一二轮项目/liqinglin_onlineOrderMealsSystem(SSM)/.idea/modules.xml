@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/liqinglin_onlineOrderMealSystemSystem.iml" filepath="$PROJECT_DIR$/liqinglin_onlineOrderMealSystemSystem.iml" />
-      <module fileurl="file://$PROJECT_DIR$/liqinglin_onlineOrderMealsSystem.iml" filepath="$PROJECT_DIR$/liqinglin_onlineOrderMealsSystem.iml" />
     </modules>
   </component>
 </project>

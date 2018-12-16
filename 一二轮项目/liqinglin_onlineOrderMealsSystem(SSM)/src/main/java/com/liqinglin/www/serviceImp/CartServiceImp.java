@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.liqinglin.www.dao.CartMapper;
+import com.liqinglin.www.mapper.CartMapper;
 import com.liqinglin.www.po.Cart;
 import com.liqinglin.www.po.CartInfo;
 import com.liqinglin.www.po.PageBean;

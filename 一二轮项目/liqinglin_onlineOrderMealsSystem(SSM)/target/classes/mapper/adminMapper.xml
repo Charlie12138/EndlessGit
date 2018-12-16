@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liqinglin.www.dao.AdminMapper">
+<mapper namespace="com.liqinglin.www.mapper.AdminMapper">
 
     <!--搜索正在注的用户-->
     <select id="getRegisterUser" resultType="User">
@@ -111,7 +111,7 @@
 
 
     <!--分页：获得某一页所需要的数据-->
-    <select id="getPageStore"  parameterType="PageBean" resultMap="pageStoreMap">
+    <select id="getPageStore" parameterType="com.liqinglin.www.po.PageBean" resultMap="pageStoreMap">
         select * from t_store where status != 0 limit #{startIndex}, #{pageSize}
     </select>
     <resultMap id="pageStoreMap" type="Store">
@@ -123,7 +123,7 @@
         <result property="storeDescription" column="storeDescription"/>
         <result property="createTime" column="createTime"/>
         <result property="status" column="status"/>
-        <association property="user" column="shopkeeperId" select="com.liqinglin.www.dao.UserMapper.getUserById"/>
+        <association property="user" column="shopkeeperId" select="com.liqinglin.www.mapper.UserMapper.getUserById"/>
     </resultMap>
 
 

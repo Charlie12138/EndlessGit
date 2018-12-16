@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.liqinglin.www.dao.OrderMapper;
+import com.liqinglin.www.mapper.OrderMapper;
 import com.liqinglin.www.po.PageBean;
 import com.liqinglin.www.po.SingleOrder;
 import com.liqinglin.www.po.TotalOrder;

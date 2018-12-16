@@ -40,7 +40,7 @@
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 给出需要扫描Dao接口包 -->
-        <property name="basePackage" value="com.liqinglin.www.dao" />
+        <property name="basePackage" value="com.liqinglin.www.mapper" />
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>

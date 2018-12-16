@@ -2,14 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liqinglin.www.dao.StoreMapper">
+<mapper namespace="com.liqinglin.www.mapper.StoreMapper">
     <!--获得某个店铺的信息-->
     <select id="getStoreInfoById" parameterType="int" resultMap="storeMap1">
         select * from t_store where id =#{id}
     </select>
     <resultMap id="storeMap1" type="Store">
         <id property="storeId" column="id"/>
-        <association property="user" column="shopkeeperId" select= "com.liqinglin.www.dao.UserMapper.getUserById"/>
+        <association property="user" column="shopkeeperId" select= "com.liqinglin.www.mapper.UserMapper.getUserById"/>
     </resultMap>
 
     <!--获得某个店铺的信息-->
@@ -18,7 +18,7 @@
     </select>
     <resultMap id="storeMap2" type="Store">
         <id property="storeId" column="id"/>
-        <association property="user" column="shopkeeperId" select="com.liqinglin.www.dao.UserMapper.getUserById"/>
+        <association property="user" column="shopkeeperId" select="com.liqinglin.www.mapper.UserMapper.getUserById"/>
     </resultMap>
 
     <!--上架美食-->
@@ -56,7 +56,7 @@
     </select>
 
     <!--菜肴分页：获得某一页所需要的数据(同一个店铺)-->
-    <select id="getPageCuisineByStore" parameterType="PageBean" resultMap="pageCuisineMap">
+    <select id="getPageCuisineByStore" parameterType="com.liqinglin.www.po.PageBean" resultMap="pageCuisineMap">
         select * from t_cuisine where storeId = #{storeId} limit #{startIndex}, #{pageSize}
     </select>
     <resultMap id="pageCuisineMap" type="Cuisine">
@@ -75,7 +75,10 @@
 
     <!--获得搜索出的记录数-->
     <select id="getCuisinesNumByCuisineName" parameterType="String" resultType="int">
-        select count(*) from t_cuisine where cuisineName like "%" + #{key} + "%"
+        select count(*) from t_cuisine where cuisineName like "%"#{key}"%"
+    </select>
+    <select id="getCuisinesNumByStoreName" parameterType="String" resultType="int">
+        select count(*) from t_store where storename like "%"#{key}"%"
     </select>
 
     <select id="getCuisinesNumByStoreId" parameterType="int" resultType="int">
@@ -84,7 +87,7 @@
 
     <!--分页准备-->
     <select id="searchByCuisine" parameterType="java.util.Map" resultMap="searchByCuisineMap">
-        select * from t_cuisine where cuisineName like "%" + #{key} + "%" limit #{startIndex}, #{pageSize}
+        select * from t_cuisine where cuisineName like "%"#{key}"%" limit #{startIndex}, #{pageSize}
     </select>
     <resultMap id="searchByCuisineMap" type="Cuisine">
         <association property="store" column="storeId" select="getStoreInfoById"/>

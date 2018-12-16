@@ -1,7 +1,6 @@
 package com.liqinglin.www.serviceImp;
 
-import com.liqinglin.www.dao.StoreMapper;
-import com.liqinglin.www.dao.UserMapper;
+import com.liqinglin.www.mapper.UserMapper;
 import com.liqinglin.www.po.Store;
 import com.liqinglin.www.po.User;
 import com.liqinglin.www.service.UserService;
@@ -27,7 +26,7 @@ public class UserServiceImp implements UserService {
 	public int register(User user) {
 		if (userMapper.usernameIsExist(user.getUsername()) != 0) {
 			return Contants.USERNAME_EXIST_CODE; // 该用户已存在
-		} else if (userMapper.addUser(user) == 1) {
+		} else if (userMapper.addUser(user) == 1 && userMapper.addRole(user.getId()) == 1) {
 			return Contants.SUCCESS_CODE;
 		}
 		return Contants.FAIL_CODE;

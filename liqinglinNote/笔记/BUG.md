@@ -16,7 +16,7 @@
 
 ​	resourse说找不到。
 
-	##### 原因：com.lql.test1被作为根目录，编译后路径出现了问题
+	原因：com.lql.test1被作为根目录，编译后路径出现了问题
 
 ##### 解决：建一个java文件夹把com.lql.test1放进去
 

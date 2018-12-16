@@ -1,5 +1,4 @@
-import com.liqinglin.www.controller.UserLoginHandler;
-import com.liqinglin.www.dao.UserMapper;
+import com.liqinglin.www.mapper.UserMapper;
 import com.liqinglin.www.service.UserService;
 import com.liqinglin.www.serviceImp.UserServiceImp;
 import org.junit.runner.RunWith;
@@ -23,12 +22,12 @@ public class Test {
 	}
 
 	@Autowired(required = false)
-	private UserLoginHandler userLoginServlet;
+//	private UserLoginHandler userLoginServlet;
 
 	@org.junit.Test
 	public void test() {
 		System.out.println(userMapper);
 		System.out.println(userService);
-		System.out.println(userLoginServlet);
+//		System.out.println(userLoginServlet);
 	}
 }

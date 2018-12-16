@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.liqinglin.www.dao.OrderMapper">
+<mapper namespace="com.liqinglin.www.mapper.OrderMapper">
     <!--添加整个订单 -->
     <insert id="addTotalOrder" parameterType="TotalOrder">
         insert into t_totalorder (orderNum, receiver, address,
@@ -22,7 +22,7 @@
     </select>
     <resultMap id="totalOrderMap" type="TotalOrder">
         <result property="status" column="orderStatus"/>
-       <association property="store" column="storeId" select="com.liqinglin.www.dao.StoreMapper.getStoreInfoById"/>
+       <association property="store" column="storeId" select="com.liqinglin.www.mapper.StoreMapper.getStoreInfoById"/>
     </resultMap>
 
     <!--添加单个商品订单-->
@@ -40,7 +40,7 @@
         select * from t_singleorder where orderId = #{orderId} limit #{startIndex}, #{pageSize}
     </select>
     <resultMap id="singleOrderMap" type="SingleOrder">
-        <association property="cuisine" column="cuisineId" select="com.liqinglin.www.dao.StoreMapper.getCuisineInfoById"/>
+        <association property="cuisine" column="cuisineId" select="com.liqinglin.www.mapper.StoreMapper.getCuisineInfoById"/>
     </resultMap>
 
     <!--修改订单状态-->
@@ -65,7 +65,7 @@
     </select>
     <resultMap id="pageOrderMap" type="TotalOrder">
         <result property="status" column="orderStatus"/>
-        <association property="store" column="storeId" select="com.liqinglin.www.dao.StoreMapper.getStoreInfoById"/>
+        <association property="store" column="storeId" select="com.liqinglin.www.mapper.StoreMapper.getStoreInfoById"/>
     </resultMap>
 
 
