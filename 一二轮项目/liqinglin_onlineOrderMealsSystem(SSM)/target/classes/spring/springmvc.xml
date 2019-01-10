@@ -22,7 +22,7 @@
     <!-- 配置Spring MVC的视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 有时我们需要访问JSP页面,可理解为在控制器controller的返回值加前缀和后缀,变成一个可用的URL地址 -->
-        <property name="prefix" value=""/>
+        <property name="prefix" value="WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 </beans>
