@@ -6,10 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fd8d99-c3a6-4598-942a-522763f2282b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../liqinglinNote/笔记/WebSocket.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../liqinglinNote/笔记/WebSocket.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="80fd8d99-c3a6-4598-942a-522763f2282b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,7 +75,7 @@
     <session id="384885245">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.36" value="1" />
@@ -89,10 +86,11 @@
           <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -338,24 +336,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="liqinglin_onlineOrderMealsSystem(SSM)" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="liqinglin_onlineOrderMealSystemSystem" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="liqinglin_onlineOrderMealsSystem(SSM)" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="liqinglin_onlineOrderMealSystemSystem" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -447,6 +427,24 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="liqinglin_onlineOrderMealsSystem(SSM)" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="liqinglin_onlineOrderMealSystemSystem" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="liqinglin_onlineOrderMealsSystem(SSM)" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="liqinglin_onlineOrderMealSystemSystem" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -690,11 +688,12 @@
       <workItem from="1544889907181" duration="958000" />
       <workItem from="1544941575928" duration="5959000" />
       <workItem from="1545110711558" duration="1794000" />
+      <workItem from="1547129654621" duration="135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229778000" />
+    <option name="totallyTimeSpent" value="229913000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -707,8 +706,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.25396827" visible="true" weight="0.19688842" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.25396827" visible="true" weight="0.19957082" />
       <window_info id="Structure" order="1" sideWeight="0.74603176" side_tool="true" weight="0.2446352" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />

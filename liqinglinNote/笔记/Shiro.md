@@ -4,7 +4,7 @@
 * Shiro可以非常容易的开发出足够好的应用，可以应用在JavaSE和JavaEE环境
 * Shiro可以完成：认证、授权、加密、会话管理、、与Web集成、缓存等。
 
- ## Shiro实例
+ ## 一、Shiro实例
 
 IDEA:spring+springmvc+shiro
 
@@ -293,3 +293,274 @@ $('#loginbtn').click(function() {
 
 ```
 
+## 二、跟我学shiro的学习笔记
+
+**shiro不会去维护用户、维护权限；这些需要我们自己去设计/提供；然后通过相应的接口注入给shiro即可。**
+
+### 1.subject
+
+主体，代表当前“用户”，这个用户不一定是一个具体的人，与当前应用交互的任何东西都是Subject，如网络爬虫，机器人等；即一个抽象概念；所有的Subject都绑定到SecurityManager，与Subject的所有交互都会委托给SecurityManager；可以把Subject认为是一个门面；SecurityManager才是实际的执行者。
+
+### 2.Realm
+
+域，Shiro从Realm获取安全数据（如用户、角色、权限），就是说SecurityManager要验证用户身份，那么它需要从Realm获取相应的用户进行比较以确定用户身份是否合法；也需要从Realm得到用户相应的角色/权限进行验证用户是否能进行操作；可以把Realm看成DataSource，即安全数据源。
+
+## 三、shiro集成spring
+
+web.xml配置
+
+```xml
+<!-- Shiro Filter is defined in the spring application context: -->
+	<!-- 
+	1. 配置  Shiro 的 shiroFilter.  
+	2. DelegatingFilterProxy 实际上是 Filter 的一个代理对象. 默认情况下, Spring 会到 IOC 容器中查找和 
+	<filter-name> 对应的 filter bean. 也可以通过 targetBeanName 的初始化参数来配置 filter bean 的 id. 
+	-->
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+```
+
+spring-shiro.xml配置
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- =========================================================
+         Shiro Core Components - Not Spring Specific
+         ========================================================= -->
+    <!-- Shiro's main business-tier object for web-enabled applications
+         (use DefaultSecurityManager instead when there is no web environment)-->
+    <!--  
+    1. 配置 SecurityManager!
+    -->     
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="authenticator" ref="authenticator"></property>
+        
+        <property name="realms">
+        	<list>
+    			<ref bean="jdbcRealm"/>
+    			<ref bean="secondRealm"/>
+    		</list>
+        </property>
+        
+        <property name="rememberMeManager.cookie.maxAge" value="10"></property>
+    </bean>
+
+    <!-- Let's use some enterprise caching support for better performance.  You can replace this with any enterprise
+         caching framework implementation that you like (Terracotta+Ehcache, Coherence, GigaSpaces, etc -->
+    <!--  
+    2. 配置 CacheManager. 
+    2.1 需要加入 ehcache 的 jar 包及配置文件. 
+    -->     
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <!-- Set a net.sf.ehcache.CacheManager instance here if you already have one.  If not, a new one
+             will be creaed with a default config:
+             <property name="cacheManager" ref="ehCacheManager"/> -->
+        <!-- If you don't have a pre-built net.sf.ehcache.CacheManager instance to inject, but you want
+             a specific Ehcache configuration to be used, specify that here.  If you don't, a default
+             will be used.: -->
+        <property name="cacheManagerConfigFile" value="classpath:ehcache.xml"/> 
+    </bean>
+    
+    <bean id="authenticator" 
+    	class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
+    	<property name="authenticationStrategy">
+    		<bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy"></bean>
+    	</property>
+    </bean>
+
+    <!-- Used by the SecurityManager to access security data (users, roles, etc).
+         Many other realm implementations can be used too (PropertiesRealm,
+         LdapRealm, etc. -->
+    <!-- 
+    	3. 配置 Realm 
+    	3.1 直接配置实现了 org.apache.shiro.realm.Realm 接口的 bean
+    -->     
+    <bean id="jdbcRealm" class="com.atguigu.shiro.realms.ShiroRealm">
+    	<property name="credentialsMatcher">
+    		<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+    			<property name="hashAlgorithmName" value="MD5"></property>
+    			<property name="hashIterations" value="1024"></property>
+    		</bean>
+    	</property>
+    </bean>
+    
+    <bean id="secondRealm" class="com.atguigu.shiro.realms.SecondRealm">
+    	<property name="credentialsMatcher">
+    		<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+    			<property name="hashAlgorithmName" value="SHA1"></property>
+    			<property name="hashIterations" value="1024"></property>
+    		</bean>
+    	</property>
+    </bean>
+
+    <!-- =========================================================
+         Shiro Spring-specific integration
+         ========================================================= -->
+    <!-- Post processor that automatically invokes init() and destroy() methods
+         for Spring-configured Shiro objects so you don't have to
+         1) specify an init-method and destroy-method attributes for every bean
+            definition and
+         2) even know which Shiro objects require these methods to be
+            called. -->
+    <!--  
+    4. 配置 LifecycleBeanPostProcessor. 可以自定的来调用配置在 Spring IOC 容器中 shiro bean 的生命周期方法. 
+    -->       
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- Enable Shiro Annotations for Spring-configured beans.  Only run after
+         the lifecycleBeanProcessor has run: -->
+    <!--  
+    5. 启用 IOC 容器中使用 shiro 的注解. 但必须在配置了 LifecycleBeanPostProcessor 之后才可以使用. 
+    -->     
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <!-- Define the Shiro Filter here (as a FactoryBean) instead of directly in web.xml -
+         web.xml uses the DelegatingFilterProxy to access this bean.  This allows us
+         to wire things with more control as well utilize nice Spring things such as
+         PropertiesPlaceholderConfigurer and abstract beans or anything else we might need: -->
+    <!--  
+    6. 配置 ShiroFilter. 
+    6.1 id 必须和 web.xml 文件中配置的 DelegatingFilterProxy 的 <filter-name> 一致.
+                      若不一致, 则会抛出: NoSuchBeanDefinitionException. 因为 Shiro 会来 IOC 容器中查找和 <filter-name> 名字对应的 filter bean.
+    -->     
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.jsp"/>
+        <property name="successUrl" value="/list.jsp"/>
+        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
+        
+        <property name="filterChainDefinitionMap" ref="filterChainDefinitionMap"></property>
+        
+        <!--  
+        	配置哪些页面需要受保护. 
+        	以及访问这些页面需要的权限. 
+        	1). anon 可以被匿名访问
+        	2). authc 必须认证(即登录)后才可能访问的页面. 
+        	3). logout 登出.
+        	4). roles 角色过滤器
+        -->
+        <!--  
+        <property name="filterChainDefinitions">
+            <value>
+                /login.jsp = anon
+                /shiro/login = anon
+                /shiro/logout = logout
+                
+                /user.jsp = roles[user]
+                /admin.jsp = roles[admin]
+                
+                # everything else requires authentication:
+                /** = authc
+            </value>
+        </property>
+        -->
+    </bean>
+    
+    <!-- 配置一个 bean, 该 bean 实际上是一个 Map. 通过实例工厂方法的方式 -->
+    <bean id="filterChainDefinitionMap" 
+    	factory-bean="filterChainDefinitionMapBuilder" factory-method="buildFilterChainDefinitionMap"></bean>
+    
+    <bean id="filterChainDefinitionMapBuilder"
+    	class="com.atguigu.shiro.factory.FilterChainDefinitionMapBuilder"></bean>
+    
+    <bean id="shiroService"
+    	class="com.atguigu.shiro.services.ShiroService"></bean>
+
+</beans>
+
+```
+
+1.url权限采取第一次匹配优先的方式
+
+
+
+
+
+shiro认证思路
+
+1.获取当前的Subject. 
+
+```java
+Subject currentUser = SecurityUtils.getSubject();
+```
+
+2.测试当前的用户是否已经被认证，即是否已经登录。
+
+```java 
+currentUser.isAuthenticated()
+```
+
+3.若没有被认证，则把用户名和密码封装为UsernamePasswordToken对象
+
+```java
+UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+```
+
+4.执行登陆
+
+```java
+ currentUser.login(token);
+```
+
+5.自定义Realm的方法，从数据库中获取对应的记录，返回给Shiro. 
+
+1).需要继承org.apache.shiro.realm.AuthorizingRealm;
+
+2).需要实现doGetAuthenticationInfo(AuthenticationToken token)方法
+
+6.由shiro完成密码的比对。
+
+```
+密码的比对:
+通过 AuthenticatingRealm 的 credentialsMatcher 属性来进行的密码的比对!
+```
+
+
+
+如何做到md5盐值加密：
+1). 在 doGetAuthenticationInfo 方法返回值创建 SimpleAuthenticationInfo 对象的时候, 需要使用SimpleAuthenticationInfo(principal, credentials, credentialsSalt, realmName) 构造器
+2). 使用 ByteSource.Util.bytes() 来计算盐值. 
+3). 盐值需要唯一: 一般使用随机字符串或 user id
+4). 使用 new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations); 来计算盐值加密后的密码的值. 
+
+
+
+授权流程分析
+
+1.授权需要继承AuthorizingRealm类，并实现其doGetAuthorizationInfo方法。
+
+2.AuthorizingRealm类继承自AuthenticatingRealm，但没有实现AuthenticatingRealm中的doGetAuthenticationInfo， 所以认证授权只需要继承AuthorizingRealm，同时实现AuthorizingRealm的两个方法
+
+
+
+Shiro权限注解
+
+@RequiresAuthentication：表示当前Subject已经通过login进行了身份验证；即Subject.isAuthenticated()返回true。
+
+@RequiresUser：表示当前Subject已经身份验证或者通过记住我登录的。
+
+@RequiresGuest：表示当前Subject没有身份验证或通过记住我登录过，即是游客身份。
+
+@RequeriesRoles(value={"admin", "user"}, logical=Logical.AND)：表示当前Subject需要角色admin和user
+
+@RequiresPermissions(value = {"user:a", "user:b"}, logical=Logical.OR)：表示当前Subject需要权限user:a或user:b
