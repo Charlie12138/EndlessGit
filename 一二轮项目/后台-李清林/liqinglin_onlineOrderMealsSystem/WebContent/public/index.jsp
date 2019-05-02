@@ -45,7 +45,7 @@ function check() {
 	</center>
 	
 	<center>
-		<form action="/liqinglin_onlineOrderMealsSystem/SearchServlet" method="get" onsubmit="return check()">
+		<form action="/school/admin/research" method="get" onsubmit="return check()">
 			<input type="text" id="query" name="key" size="20%" placeholder="输入关键字"><br> 
 			<input type="radio" name="choose" class="choose" value="cuisine" checked="checked">美食
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
