@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class ShellSort {
 
 	//将每一组的第一个数看成有序数，从第二个数开始在同组比较
-	private static int[] shellSort2(int[] arr, int length){
+	private static void shellSort2(int[] arr, int length){
 		//希尔增量依次除以二
 		for (int gap = length / 2; gap > 0; gap /= 2) {
 			//从第gap个数开始
@@ -32,10 +32,9 @@ public class ShellSort {
 
 			}
 		}
-		return arr;
 	}
 
-	private static int[] shellSort1(int[] arr, int length) {
+	private static void shellSort1(int[] arr, int length) {
 		//希尔增量依次除以二
 		for (int gap = length / 2; gap > 0; gap /= 2) {
 			//控制简单的插入排序不会重复，因为i = gap是上一个分组的第二个数
@@ -57,7 +56,6 @@ public class ShellSort {
 				}
 			}
 		}
-		return arr;
 	}
 
 
@@ -73,7 +71,8 @@ public class ShellSort {
 			for (int i = 0; i < length; i++) {
 				number[i] = scanner.nextInt();
 			}
-			System.out.println(Arrays.toString(shellSort2(number, length)));
+			shellSort2(number, length);
+			System.out.println(Arrays.toString(number));
 		}
 	}
 }

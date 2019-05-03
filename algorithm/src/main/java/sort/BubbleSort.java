@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class BubbleSort {
 
-	private static int[] bubbleSort1(int[] arr, int length) {
+	private static void bubbleSort1(int[] arr, int length) {
 		for (int i = 0; i < length; i++) {
 			//j < length - i - 1: 每排序一趟数组最后有序的数字就多一个，后面的每一趟排序就少一个需要比较，所以i增多少j就减多少
 			for (int j = 0; j < length - 1 -i; j++) {
@@ -22,10 +22,9 @@ public class BubbleSort {
 				}
 			}
 		}
-		return arr;
 	}
 
-	private static int[] bubbleSort2(int[] arr, int length) {
+	private static void bubbleSort2(int[] arr, int length) {
 		for (int i = 0; i < length; i++) {
 			boolean flag = false;
 			for (int j = 0; j < length - 1 -i; j++) {
@@ -41,7 +40,6 @@ public class BubbleSort {
 				break;
 			}
 		}
-		return arr;
 	}
 
 	public static void main(String[] args) {
@@ -54,7 +52,8 @@ public class BubbleSort {
 			for (int i = 0; i < length; i++) {
 				number[i] = scanner.nextInt();
 			}
-			System.out.println(Arrays.toString(bubbleSort2(number, length)));
+			bubbleSort2(number, length);
+			System.out.println(Arrays.toString(number));
 		}
 	}
 

@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class InsertionSort {
 
-	private static int[] insertionSort(int[] arr, int legth) {
+	private static void insertionSort(int[] arr, int legth) {
 		for(int i = 1; i < legth; i++) {
 			//要排序的记录的前一个记录下标
 			int preIndex = i - 1;
@@ -25,7 +25,6 @@ public class InsertionSort {
 			//放入正确的位置
 			arr[preIndex + 1] = current;
 		}
-		return arr;
 	}
 
 	public static void main(String[] args) {
@@ -38,7 +37,8 @@ public class InsertionSort {
 			for (int i = 0; i < length; i++) {
 				number[i] = scanner.nextInt();
 			}
-			System.out.println(Arrays.toString(insertionSort(number, length)));
+			insertionSort(number, length);
+			System.out.println(Arrays.toString(number));
 		}
 	}
 }

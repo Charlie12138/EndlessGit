@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @since 2019-04-30
  */
 public class SelectionSort {
-	private static int[] selectionSort(int[] arr, int length) {
+	private static void selectionSort(int[] arr, int length) {
 		for (int i = 0; i < length - 1; i++) {
 			int small = i;
 			for (int j = i + 1; j < length; j++) {
@@ -25,7 +25,6 @@ public class SelectionSort {
 				arr[i] = arr[i] ^ arr[small];
 			}
 		}
-		return arr;
 	}
 
 
@@ -39,7 +38,8 @@ public class SelectionSort {
 			for (int i = 0; i < length; i++) {
 				number[i] = scanner.nextInt();
 			}
-			System.out.println(Arrays.toString(selectionSort(number, length)));
+			selectionSort(number, length);
+			System.out.println(Arrays.toString(number));
 		}
 	}
 }
