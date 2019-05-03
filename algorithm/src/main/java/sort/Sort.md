@@ -23,3 +23,6 @@
 #### 4、希尔排序
 希尔排序是插入排序的升级版。
 ![](https://img-blog.csdn.net/20131004222122953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZ2lubm9zeA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
+#### 5、归并排序
+归并排序是稳定排序，它也是一种十分高效的排序，能利用完全二叉树特性的排序一般性能都不会太差。java中Arrays.sort()采用了一种名为TimSort的排序算法，就是归并排序的优化版本。从上文的图中可看出，每次合并操作的平均时间复杂度为O(n)，而完全二叉树的深度为|log2n|。总的平均时间复杂度为O(nlogn)。而且，归并排序的最好，最坏，平均时间复杂度均为O(nlogn)。
