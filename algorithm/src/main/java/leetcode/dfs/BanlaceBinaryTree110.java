@@ -1,6 +1,6 @@
 package leetcode.dfs;
 
-public class BanlaceBinaryTree {
+public class BanlaceBinaryTree110 {
 
 	public int maxDepth(TreeNode root) {
 		int depth = 0;
@@ -62,7 +62,7 @@ public class BanlaceBinaryTree {
 //		node3.setLeft(node5);
 //		node3.setRight(node6);
 
-		BanlaceBinaryTree banlaceBinaryTree = new BanlaceBinaryTree();
+		BanlaceBinaryTree110 banlaceBinaryTree = new BanlaceBinaryTree110();
 		System.out.println(banlaceBinaryTree.isBalanced(node));
 	}
 }
