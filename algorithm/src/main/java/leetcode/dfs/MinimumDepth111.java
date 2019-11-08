@@ -1,6 +1,40 @@
 package leetcode.dfs;
 
+import java.util.LinkedList;
+
 public class MinimumDepth111 {
+
+	public int minDepthOfBFS(TreeNode root) {
+		if (root == null) {
+			return 0;
+		}
+		LinkedList<TreeNode> queue = new LinkedList<>();
+		queue.push(root);
+		int result = 1;
+		TreeNode node = null;
+		while (!queue.isEmpty()) {
+			int flag = queue.size();
+			for (int j = 0; j < flag; j++) {
+				node = queue.poll();
+				if (node != null) {
+					if (node.getLeft() == null && node.getRight() == null) {
+						break;
+					}
+					if (node.getLeft() != null) {
+						queue.add(node.getLeft());
+					}
+					if (node.getRight() != null) {
+						queue.add(node.getRight());
+					}
+				}
+			}
+			if (node != null && node.getLeft() == null && node.getRight() == null) {
+				break;
+			}
+			result++;
+		}
+		return result;
+	}
 
 	public int minDepth(TreeNode root) {
 		if (root == null) {
@@ -31,9 +65,9 @@ public class MinimumDepth111 {
 		node.setLeft(node1);
 		node.setRight(node2);
 		node2.setRight(node3);
-		node1.setLeft(node4);
+//		node1.setLeft(node4);
 
 		MinimumDepth111 minimumDepth111 = new MinimumDepth111();
-		System.out.println(minimumDepth111.minDepth(node));
+		System.out.println(minimumDepth111.minDepthOfBFS(node));
 	}
 }
