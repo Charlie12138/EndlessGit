@@ -1,22 +1,36 @@
-package leetcode.dfs;
+package leetcode.dfsbfs;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class EmployeeImportance690 {
 	public int getImportance(List<Employee> employees, int id) {
-		Employee employee = null;
 		int result = 0;
-		Optional<Employee> optional = employees.stream().filter(e -> e.id == id).findAny();
-		if (optional.isPresent()) {
-			employee = optional.get();
-			if (employee.subordinates != null) {
-				result = employee.subordinates.stream().mapToInt(integer -> getImportance(employees, integer)).sum();
-			}
-			return employee.importance + result;
+		Map<Integer, Employee> employeeMap = new HashMap<>();
+		for (Employee e : employees) {
+			employeeMap.put(e.id, e);
 		}
+		Employee employee = employeeMap.get(id);
+		LinkedList<Integer> subordinates = new LinkedList<>(employee.subordinates);
+		while (!subordinates.isEmpty()) {
+			int curEmp = subordinates.poll();
+			Employee curEmployee = employeeMap.get(curEmp);
+			result += curEmployee.importance;
+			if (curEmployee.subordinates != null) {
+				subordinates.addAll(curEmployee.subordinates);
+			}
+		}
+
+
+
+//		Optional<Employee> optional = employees.stream().filter(e -> e.id == id).findAny();
+//		if (optional.isPresent()) {
+//			employee = optional.get();
+//			if (employee.subordinates != null) {
+//				result = employee.subordinates.stream().mapToInt(integer -> getImportance(employees, integer)).sum();
+//			}
+//			return employee.importance + result;
+//		}
 
 //		for (Employee e : employees) {
 //			if (e.id == id) {
@@ -31,7 +45,7 @@ public class EmployeeImportance690 {
 //			}
 //			return employee.importance + result;
 //		}
-		return 0;
+		return employee.importance + result;
 	}
 
 	public static void main(String[] args) {

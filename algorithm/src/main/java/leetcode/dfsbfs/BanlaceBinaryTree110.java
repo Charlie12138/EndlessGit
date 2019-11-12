@@ -1,4 +1,4 @@
-package leetcode.dfs;
+package leetcode.dfsbfs;
 
 public class BanlaceBinaryTree110 {
 

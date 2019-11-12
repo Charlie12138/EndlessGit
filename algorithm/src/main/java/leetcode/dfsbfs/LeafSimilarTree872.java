@@ -1,7 +1,6 @@
-package leetcode.dfs;
+package leetcode.dfsbfs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class LeafSimilarTree872 {
