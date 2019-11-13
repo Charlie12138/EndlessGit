@@ -1,25 +1,53 @@
 package leetcode.dfsbfs;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MaximumDepthOfN_aryTree559 {
+
+	/**
+	 * BFS
+	 */
 	public int maxDepth(Node root) {
-		int result = 0;
 		if (root == null) {
-			return result;
+			return 0;
 		}
-		List<Node> children = root.children;
-		if (children != null) {
-//			result = children.stream().mapToInt(child -> maxDepth(child)).max().getAsInt();
-			int max = 0;
-			for (Node child : children) {
-				max = maxDepth(child);
-				result = max > result ? max : result;
+		LinkedList<Node> queue = new LinkedList<>();
+		queue.add(root);
+		int result = 0;
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				Node curNode = queue.poll();
+				if (curNode != null && curNode.children != null) {
+					queue.addAll(curNode.children);
+				}
 			}
+			result++;
 		}
-		return result + 1;
+		return result;
 	}
+
+//	/**
+//	 * DFS
+//	 */
+//	public int maxDepth(Node root) {
+//		int result = 0;
+//		if (root == null) {
+//			return result;
+//		}
+//		List<Node> children = root.children;
+//		if (children != null) {
+////			result = children.stream().mapToInt(child -> maxDepth(child)).max().getAsInt();
+//			int max = 0;
+//			for (Node child : children) {
+//				max = maxDepth(child);
+//				result = max > result ? max : result;
+//			}
+//		}
+//		return result + 1;
+//	}
 
 	public static void main(String[] args) {
 		Node node2 = new Node(3, null);
