@@ -1,4 +1,4 @@
-package leetcode.dfsbfs;
+package leetcode.tree;
 
 import java.util.Arrays;
 import java.util.LinkedList;

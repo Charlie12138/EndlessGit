@@ -1,4 +1,4 @@
-package leetcode.dfsbfs;
+package leetcode.tree;
 
 public class PathSum {
 	public boolean hasPathSum(TreeNode root, int sum) {
