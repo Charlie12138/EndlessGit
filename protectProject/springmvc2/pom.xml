@@ -25,7 +25,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.0.7.RELEASE</version>
+            <version>5.1.0.RELEASE</version>
         </dependency>
         <!--mysql驱动包-->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
